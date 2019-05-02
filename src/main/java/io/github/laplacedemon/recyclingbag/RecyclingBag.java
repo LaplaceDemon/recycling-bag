@@ -10,12 +10,9 @@ public class RecyclingBag<T> {
     private final int localNum;
     
     public RecyclingBag(final int localNum, final long publicNum, final Supplier<? extends T> supplier) {
-        System.out.println("创建内存池");
     	this.supplier = supplier;
         this.localNum = localNum;
         this.localVar = ThreadLocal.withInitial(() -> {
-        	String threadName = Thread.currentThread().getName();
-        	System.out.println("创建线程:" + threadName);
             final ArrayQueue<T> queue = new ArrayQueue<T>(localNum);
             
             for(int i = 0;i<localNum;i++) {
