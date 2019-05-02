@@ -55,7 +55,4 @@ public class RecyclingBag<T> {
         }
         queue.release(obj);
     }
-    
-    
-    
 }
